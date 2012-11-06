@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery ToastChart - Advanced</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" href="../jquery-toastchart.css" type="text/css" />
+        <style type="text/css">
+
+            body {
+                background: #111;
+            }
+
+            #toastchart-graph {
+                width: 1000px;
+                height: 600px;
+                background: #333;
+                position: relative;
+            }
+
+            .toastchart-xlegend,
+            .toastchart-ylegend {
+                color: #ccc;
+                font-family: Arial, Sans-Serif;
+                font-size: .8em;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="toastchart-graph"></div>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script type="text/javascript" data-main="../jquery-toastchart" src="http://requirejs.org/docs/release/2.1.1/minified/require.js"></script>
+        <script type="text/javascript">
+
+            // This just generates a bunch of fake data to put in the chart
+            var fakeData = { x: [[],[]], y: [[],[]] }, date = new Date();
+            for (var i = 0; i < 30; i++) {
+                var newDate = new Date();
+                newDate.setDate(date.getDate() + i);
+                fakeData.x[0].push(newDate);
+                fakeData.x[1].push(newDate);
+                fakeData.y[0].push(Math.floor(Math.random() * 90000));
+                fakeData.y[1].push(Math.floor(Math.random() * 100));
+            }
+            // End fake data
+
+            $('body').bind('toastchart-ready', function () {
+                $('#toastchart-graph').toastchart({
+                    ignoreAxis: true,
+                    ignoreAxisSpacing: 70,
+                    showPoints: true,
+                    updated: function () {
+                        console.log('updated');
+                    },
+                    hoverOff: function () {
+                        console.log('hover off');
+                    },
+                    data: fakeData,
+                    axis: {
+                        x: {
+                            // renderer: function (n) { return n.x + "!" },
+                            // tickRenderer: function () { return "hi!" },
+                            // start: new Date(),
+                            // end: new Date().setDate(30),
+                            lineType: 'solid',
+                            type: 'date',
+                            color: '#999',
+                            lineWidth: 1,
+                            legendColor: '#ccc',
+                            font: '9pt Arial',
+                            space: 35,
+                            tickInterval: 'month'
+                        },
+                        y: {
+                            //tickInterval: '1',
+                            max: 500,
+                            renderer: function (n) {
+                                return parseInt(n.y);
+                            },
+                            type: 'number',
+                            ticks: 25,
+                            color: '#000',
+                            lineWidth: 1,
+                            lineSpacing: 3,
+                            lineType: 'dashed',
+                            legendColor: '#ccc',
+                            font: '9pt Arial',
+                            min: 0
+                        }
+                    },
+                    series: [
+                        {
+                            hoverOn: function () { console.log('hover on series 1'); },
+                            color: 'rgba(194, 95, 15, 0.4)',
+                            name: 'Name1',
+                            strokeStyle: 'rgba(194, 95, 15, 0.9)',
+                            lineWidth: 4,
+                            hidden: false
+                        },
+                        {
+                            hoverOn: function () { console.log('hover on series 2'); },
+                            color: 'rgba(132, 196, 48, 0.4)',
+                            name: 'Name2',
+                            strokeStyle: 'rgba(132, 196, 48, 0.9)',
+                            lineWidth: 4,
+                            hidden: false
+                        }
+                    ],
+                    style: {
+                        margin: {
+                            // left: 0,
+                            // top: 0,
+                            // right: 0,
+                            // bottom: 0
+                        },
+                        padding: {
+                            // left: 0,
+                            // top: 0,
+                            // right: 0,
+                            // bottom: 0
+                        }
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

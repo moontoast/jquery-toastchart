@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery ToastChart - Dark Theme</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" href="../jquery-toastchart.css" type="text/css" />
+    </head>
+    <body>
+        <div id="toastchart-graph" style="background: #222; height: 600px;"></div>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script type="text/javascript" data-main="../jquery-toastchart" src="http://requirejs.org/docs/release/2.1.1/minified/require.js"></script>
+        <script type="text/javascript">
+
+            // Begin Creating fake data
+            var fakeData = { x: [], y: [] }, date = new Date(), lines = 2, days = 30, series = [];
+            for (var j = 0; j < lines; j++) {
+                fakeData.x[j] = [];
+                fakeData.y[j] = [];
+                series.push({
+                    hoverOn: function (data) {}
+                });
+                for (var i = 0; i < days; i++) {
+                    var newDate = new Date();
+                    newDate.setDate(date.getDate() + i);
+                    fakeData.x[j].push(newDate);
+                    fakeData.y[j].push(Math.floor(Math.random() * 90000));
+                }
+            }
+
+            // Finish Creating fake data
+            $('body').bind('toastchart-ready', function () {
+                $('#toastchart-graph').toastchart({
+                    ignoreAxis: true,
+                    data: fakeData,
+                    series: [
+                        {
+                            color: 'rgba(194, 95, 15, 0.4)',
+                            name: 'Fans',
+                            strokeStyle: 'rgba(194, 95, 15, 0.9)',
+                            lineWidth: 4,
+                            hidden: false,
+                            hoverOn: series[0].hoverOn
+                        },
+                        {
+                            color: 'rgba(132, 196, 48, 0.4)',
+                            name: 'Fans',
+                            strokeStyle: 'rgba(132, 196, 48, 0.9)',
+                            lineWidth: 4,
+                            hidden: false,
+                            hoverOn: series[1].hoverOn
+                        }
+                    ]
+                });
+            });
+
+        </script>
+    </body>
+</html>

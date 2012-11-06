@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery ToastChart - Basic</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" href="../jquery-toastchart.css" type="text/css" />
+    </head>
+    <body>
+        <div id="toastchart-graph" style="height: 600px;"></div>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script type="text/javascript" data-main="application" src="http://requirejs.org/docs/release/2.1.1/minified/require.js"></script>
+        <script type="text/javascript">
+
+            // Begin Creating fake data
+            var data = {
+                x: [
+                    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                ],
+                y: [
+                    [93, 92, 93, 94, 95, 96, 97, 98, 99, 94],
+                    [100, 102, 103, 104, 105, 106, 107, 128, 105, 100]
+                ]
+            };
+
+            // Finish Creating fake data
+            $('body').bind('toastchart-ready', function () {
+                $('#toastchart-graph').toastchart({
+                    data: data
+                });
+            });
+
+        </script>
+    </body>
+</html>
