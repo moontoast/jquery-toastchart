@@ -12,6 +12,14 @@ jQuery ToastChart is a line-graph charting library that is designed to show all 
 </p>
 
 
+## Examples
+* [Basic](http://htmlpreview.github.com/?https://github.com/tysoncadenhead/jquery-toastchart/blob/master/examples/basic.html)
+* [Advanced](http://htmlpreview.github.com/?https://github.com/tysoncadenhead/jquery-toastchart/blob/master/examples/advanced.html)
+* [Dark Theme](http://htmlpreview.github.com/?https://github.com/tysoncadenhead/jquery-toastchart/blob/master/examples/dark-theme.html)
+* [Pink Theme](http://htmlpreview.github.com/?https://github.com/tysoncadenhead/jquery-toastchart/blob/master/examples/pink-theme.html)
+* [Line Theme](http://htmlpreview.github.com/?https://github.com/tysoncadenhead/jquery-toastchart/blob/master/examples/line-theme.html)
+
+
 ## Installation
 
 The only hard dependencies of ToastChart are [jQuery](http://jquery.com/) and [RequireJS](http://requirejs.org/).
