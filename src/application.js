@@ -1,7 +1,7 @@
 /**
  * @author Tyson Cadenhead | tysoncadenheadAtGmailDotCom | tysonlloydcadenhead.com
  * @description This is a charting library using the HTML5 canvas
- * @copyright Copyright (c) 2012, Moontoast, LLC
+ * @copyright Copyright (c) 2012 Moontoast, Inc.
  * @license http://alphabase.moontoast.com/licenses/bsd-3-clause.txt BSD 3-Clause License
  *
  * BUILDING THIS PROJECT:
